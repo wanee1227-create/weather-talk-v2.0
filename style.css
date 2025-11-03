@@ -1,0 +1,261 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  /* 기본 (화이트 모드) 배경 */
+  background: linear-gradient(to bottom, #74ebd5, #ACB6E5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333; /* 기본 글자색 */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* --- 다크 모드 스타일 --- */
+.dark-mode {
+  /* 다크 모드 배경 */
+  background: linear-gradient(to bottom, #1f4037, #0d1e1f);
+  color: #f0f0f0; /* 다크 모드 글자색 */
+}
+
+.dark-mode #weatherApp {
+  background: rgba(30, 30, 30, 0.9);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+.dark-mode input {
+  background-color: #555;
+  color: #f0f0f0;
+  border: 1px solid #777;
+}
+
+.dark-mode button {
+  background-color: #3f689e;
+  color: #f0f0f0;
+}
+
+.dark-mode .dayForecast,
+.dark-mode #favoritesContainer,
+.dark-mode #authContainerLeft,
+.dark-mode #infoBox {
+  background: rgba(30, 30, 30, 0.85);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+.dark-mode .auth-form {
+    background: rgba(30, 30, 30, 0.95);
+    border: 1px solid #777;
+}
+
+/* ------------------------ */
+
+#weatherApp {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 30px 50px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+  width: 50%;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button {
+  padding: 10px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  background-color: #4da6ff;
+  color: white;
+  margin: 5px 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#weatherInfo {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.dayForecast {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  padding: 5px 10px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 10px;
+  transition: background-color 0.3s;
+}
+
+.dayForecast div {
+  white-space: pre-line;
+}
+
+/* --- 로그인/인증 관련 스타일 (왼쪽 상단) --- */
+.hidden {
+  display: none !important;
+}
+
+#authContainerLeft {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  z-index: 1000;
+  text-align: left;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+#authContainerLeft button {
+    margin: 3px;
+    padding: 8px 12px;
+}
+
+.auth-form {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.95);
+  text-align: center;
+  margin-bottom: 15px;
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 300px;
+  width: 90%;
+  z-index: 10;
+  transition: background-color 0.3s, border 0.3s;
+}
+
+.auth-form h4 {
+    margin-top: 0;
+}
+
+.auth-form input {
+  margin-bottom: 5px;
+  width: calc(100% - 22px);
+  margin-right: 0;
+}
+
+.auth-form button {
+  margin-top: 10px;
+  width: 48%;
+}
+
+/* --- --- */
+
+
+/* 즐겨찾기 오른쪽 위 */
+#favoritesContainer {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(255,255,255,0.85);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  max-width: 150px;
+  z-index: 1000;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+#favoritesContainer.hidden {
+  display: none;
+}
+
+#favoritesContainer h4 {
+  margin: 0 0 5px 0;
+  font-size: 14px;
+  text-align: center;
+}
+
+#favoritesList div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3px;
+}
+
+.favoriteCityName {
+  flex-grow: 1;
+  text-align: left;
+  cursor: pointer;
+}
+
+.deleteBtn {
+  background: red;
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#infoContainer {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px; 
+  align-items: flex-end;
+  text-align: right;
+  z-index: 1000;
+}
+
+#infoContainer button {
+    margin: 0;
+}
+
+/* #infoBox의 기본(숨김) 상태를 정의하고 클릭 방지 속성 추가 */
+#infoBox {
+  margin-top: 5px;
+  padding: 10px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  
+  /* 기본 (hidden) 상태 */
+  opacity: 0;
+  transform: translateY(10px);
+  max-height: 0;
+  overflow: hidden;
+  pointer-events: none; /* FIX: 숨겨진 상태에서 다른 버튼 클릭 방지 */
+  
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out, max-height 0.2s ease-out, background-color 0.3s, box-shadow 0.3s;
+  
+  position: absolute;
+  bottom: 50px; 
+  right: 0;
+  width: 150px;
+  z-index: 999;
+}
+
+/* #infoBox의 보이는 상태 */
+#infoBox.visible {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 500px;
+  pointer-events: auto; /* FIX: 보일 때 클릭 가능 */
+  z-index: 1001;
+}

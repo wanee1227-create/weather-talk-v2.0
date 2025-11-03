@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>날씨톡톡 🌤️</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="authContainerLeft">
+    <span id="welcomeMessage" style="margin-right: 10px;"></span>
+    <button id="loginBtn" style="display: none;">로그인</button>
+    <button id="signupBtn" style="display: none;">회원가입</button>
+    <button id="logoutBtn" style="display: none;">로그아웃</button>
+  </div>
+
+  <div id="weatherApp">
+    <h1>날씨톡톡 🌤️</h1>
+    
+    <div id="loginForm" class="hidden auth-form" style="margin-top: 10px;">
+      <h4>로그인</h4>
+      <input type="text" id="usernameInput" placeholder="사용자 ID">
+      <input type="password" id="passwordInput" placeholder="비밀번호">
+      <button id="submitLoginBtn">로그인하기</button>
+      <button id="cancelLoginBtn">취소</button>
+    </div>
+
+    <div id="signupForm" class="hidden auth-form" style="margin-top: 10px;">
+        <h4>회원가입</h4>
+        <input type="text" id="newUsernameInput" placeholder="새 사용자 ID">
+        <input type="password" id="newPasswordInput" placeholder="비밀번호">
+        <input type="password" id="confirmPasswordInput" placeholder="비밀번호 확인">
+        <button id="submitSignupBtn">가입하기</button>
+        <button id="cancelSignupBtn">취소</button>
+    </div>
+
+    <input type="text" id="cityInput" placeholder="도시 입력 (예: 서울)">
+    <button id="getWeatherBtn">날씨 확인</button>
+    <button id="addFavoriteBtn" style="display: none;">⭐ 즐겨찾기 추가</button>
+    <div id="weatherInfo"></div>
+  </div>
+
+  <div id="favoritesContainer" class="hidden">
+    <h4>즐겨찾기 (사용자 전용)</h4>
+    <div id="favoritesList"></div>
+  </div>
+
+  <div id="infoContainer">
+    <button id="infoBtn">ⓘ 정보</button>
+    <button id="themeToggleBtn">🌙 다크 모드</button>
+    <div id="infoBox"> <p>제작자: 지환</p>
+      <p>버전: 1.0</p>
+      <p>데이터 출처: wttr.in</p>
+    </div>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
